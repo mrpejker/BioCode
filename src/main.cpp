@@ -3,34 +3,42 @@
 
 #include <biocode.hpp>
 
+using namespace std;
+
 int main() {
   try {
     //Week 1 Quiz
-    std::cout << PatternCount<false>({ "GACCATCAAAACTGATAAACTACTTAAAAATCAGT" }, { "AAA" }) << std::endl; //Quiz 1 question 2
+    cout << PatternCount<false>({ "GACCATCAAAACTGATAAACTACTTAAAAATCAGT" }, { "AAA" }) << endl; //Quiz 1 question 2
+    for (auto& str : FrequentWords<false>({ "CGCCTAAATAGCCTCGCGGAGCCTTATGTCATACTCGTCCT" }, 3)) //Quiz 1 question 3
+    {
+      cout << static_cast<string>(str) << endl;
+    };
     
     //Week 1 Programming assignments
 
     { //Read input and solve PatternCount problem
-      std::ifstream ifs("../data/datasets/dataset_2_6.txt", std::ios::in);
-      std::string text{ };
-      std::string pattern{ };
-      std::getline(ifs, text);
-      std::getline(ifs, pattern);
-      std::cout << PatternCount<false>(text, pattern) << std::endl;
+      ifstream ifs("../data/datasets/dataset_2_6.txt", ios::in);
+      string text{ };
+      string pattern{ };
+      getline(ifs, text);
+      getline(ifs, pattern);
+      cout << PatternCount<false>(text, pattern) << endl;
     }
 
     { //Read input and solve FrequentWords problem
-      std::ifstream ifs("../data/datasets/dataset_2_6.txt", std::ios::in);
-      std::string text{ };
+      ifstream ifs("../data/datasets/dataset_2_9.txt", ios::in);
+      string text{ };
       int k{ };
-      std::getline(ifs, text);
+      getline(ifs, text);
       ifs >> k;
-      std::cout << FrequentWords<false>(text, k).size() << std::endl;
+      for (auto& str : FrequentWords<false>(text, k)) 
+      {
+        cout << static_cast<string>(str) << endl;
+      };
     }
-    
   } 
   catch (...) {
-    std::cout << "Fatal error!" << std::endl;
+    cout << "Fatal error!" << endl;
     terminate();
   }
 }

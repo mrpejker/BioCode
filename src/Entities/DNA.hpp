@@ -1,7 +1,7 @@
 #ifndef BioCode_Entities_DNA_hpp
 #define BioCode_Entities_DNA_hpp
 
-enum class DNANucleotide {
+enum DNANucleotide {
   A = 0,
   T = 1,
   G = 2,
@@ -41,6 +41,20 @@ public:
     };
   };
 
+  //! Convert to string
+  operator std::string() const {
+    std::string str{ };
+    for (const auto& symbol : nts_) {
+      switch (symbol) {
+      case ntType::A: { str += 'A'; break; };
+      case ntType::T: { str += 'T'; break; };
+      case ntType::C: { str += 'C'; break; };
+      case ntType::G: { str += 'G'; break; };
+      };
+    };
+    return str;
+  };
+  
   //! Equality operator
   bool operator==(const DNA<IsCyclic> &other) const
   {
@@ -49,9 +63,12 @@ public:
     return true;
   };
 
+  //! Stream output operator
+
+
   //! Get size of acid string
   inline constexpr size_t size() const { return nts_.size(); };
-  inline constexpr std::vector<ntType>& data() const { return nts_; };
+  inline const std::vector<ntType>& data() const { return nts_; };
 
   //! Array type indexing
   inline const ntType& operator[](size_t i) const { return nts_[i]; };
@@ -76,20 +93,23 @@ public:
 //link : http://stackoverflow.com/questions/17016175/c-unordered-map-using-a-custom-class-type-as-the-key
 namespace std {
 
+  template <typename SizeT>
+  inline void hash_combine(SizeT& seed, SizeT value)
+  {
+    seed ^= value + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+  }
+
   template <bool IsCyclic>
   struct hash<DNA<IsCyclic>>
   {
-
     //TO DO replace hash function to boost implementation for reliable properties
     std::size_t operator()(const DNA<IsCyclic>& k) const
     {
       using std::size_t;
-      using std::hash;
-      using std::string;
-
-
-      return hash<vector<DNANucleotide>>(k.data());
-    }
+      size_t seed{ 0 };
+      for (const auto& nt : k.data()) hash_combine(seed, static_cast<size_t>(nt));
+      return seed;
+    };
   };
 
 }

@@ -3,6 +3,7 @@
 
 //! Common includes
 #include <unordered_map>
+#include <map>
 #include <sstream>
 #include <string>
 

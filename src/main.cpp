@@ -39,15 +39,16 @@ int main() {
     //}
 
     { //Read input and solve Reverse Complement problem
-      cout << "Reverse Complement for AAAACCCGGT is" << ReverseComplement("AAAACCCGGT") << endl; //Quiz 1 question 3
-      //ifstream ifs("../data/datasets/dataset_2_9.txt", ios::in);
-      //string text{};
-      //getline(ifs, text);
-      //for (auto& str : ReverseComplement(text))
-      //{
-      //  cout << static_cast<string>(str) << endl;
-      //};
-    }
+     // cout << "Reverse Complement for AAAACCCGGT is" << ReverseComplement("AAAACCCGGT") << endl; //Quiz 1 question 3
+      ifstream ifs("../data/datasets/dataset_3_2.txt", ios::in);
+      string text{};
+      getline(ifs, text);
+
+      ofstream myfile;
+      myfile.open("../data/datasets/dataset_3.txt");
+      myfile << ReverseComplement(text) << endl;
+      myfile.close();
+    };
   } 
   catch (...) {
     cout << "Fatal error!" << endl;

@@ -6,6 +6,7 @@ string ReverseComplement(const string& pattern) {
 
   auto sz = pattern.size();
   string reversePattern{pattern};
+  cout << sz << endl;
   
   for (auto i = 0; i < sz; i++) {
 
@@ -27,6 +28,6 @@ string ReverseComplement(const string& pattern) {
       break;
     };
   };
-
+  cout << reversePattern.size() << endl;
   return reversePattern;
 };

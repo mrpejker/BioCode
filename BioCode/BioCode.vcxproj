@@ -154,8 +154,13 @@
   <ItemGroup>
     <ClInclude Include="..\src\Algorithms\FrequentWords.hpp" />
     <ClInclude Include="..\src\Algorithms\PatternCount.hpp" />
+    <ClInclude Include="..\src\Algorithms\ReverseComplement.hpp" />
     <ClInclude Include="..\src\biocode.hpp" />
     <ClInclude Include="..\src\Entities\DNA.hpp" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BioCode.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,5 +12,6 @@
 //! Generic algorithms
 #include "Algorithms/PatternCount.hpp"
 #include "Algorithms/FrequentWords.hpp"
+#include "Algorithms/ReverseComplement.hpp"
 
 #endif

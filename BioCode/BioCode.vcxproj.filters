@@ -41,5 +41,16 @@
     <ClInclude Include="..\src\Algorithms\FrequentWords.hpp">
       <Filter>Заголовочные файлы\Algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Algorithms\ReverseComplement.hpp">
+      <Filter>Заголовочные файлы\Algorithms</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BioCode.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

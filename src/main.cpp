@@ -76,14 +76,7 @@ int main() {
     //};
 
 
-    { //Read input and solve Clump Finding Problem
-      
-      //string example = "CCACGCGGTGTACGCTGCAAAAAGCCTTGCTGAATCAAATAAGGTTCCAGCACATCCTCAATGGTTTCACGTTCTTCGCCAATGGCTGCCGCCAGGTTATCCAGACCTACAGGTCCACCAAAGAACTTATCGATTACCGCCAGCAACAATTTGCGGTCCATATAATCGAAACCTTCAGCATCGACATTCAACATATCCAGCG";
-      //vector<string> ans = ClumpFindingProblem(example,3,25,3);
-      //for ( auto i = 0; i < ans.size(); i++ ){
-      // cout << ans[i] << endl;
-      //}
-
+    { //Read input and solve Clump Finding Problem  // so-called nameless namepace makes temporary objects invoke destructors at their end
       ifstream ifs("../data/datasets/dataset_4_5.txt", ios::in);
       string text{};
       int L = 0;
@@ -93,19 +86,18 @@ int main() {
       getline(ifs, text);
       ifs >> k;
       ifs >> L;
-      ifs >> t;
+      ifs >> t;	
 
-      ofstream myfile;
-      myfile.open("../data/datasets/dataset45.txt");
-      cout << "ClumpFindingProblem" <<endl<<text<<endl<< k << endl << L << endl << t;
-      vector<string> ans = ClumpFindingProblem(text, k, L, t);
-      for (auto i = 0; i < ans.size(); i++) {
-         myfile << ans[i] << endl;
-      };
-
-  myfile.close();
-
-    };
+	  // RAII (Resouce aquisition is initialization) is the very useful  
+	  // technique that makes you forget about cleaning things up after
+	  // resource hadler (ofstream in our case) and should always be used
+	  ofstream myfile("../data/datasets/dataset45.txt"); 		
+	  cout << "ClumpFindingProblem" << endl << text << endl << k << endl << L << endl << t;
+	  vector<string> ans = ClumpFindingProblem(text, k, L, t);
+	  for (auto i = 0; i < ans.size(); i++) {
+	    myfile << ans[i] << endl;
+	  };		
+	} // here destructor of myfile properly finalizes the output stream  and destructor of ifs closes input  
   } 
   catch (...) {
     cout << "Fatal error!" << endl;

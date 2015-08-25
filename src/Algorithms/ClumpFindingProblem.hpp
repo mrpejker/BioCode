@@ -8,7 +8,8 @@ vector<string> ClumpFindingProblem( string& genome, int k, int L, int t) {
   map<string, int> kmers{};
   vector<string> ans{};
   
-  for (auto i = 0; i < sz - L + 1; i++) {
+
+  for (auto i = 0; i < sz - L + 1; i++) { //iterate over L-intervals
     string clump{ genome, size_t(i), size_t(L) };
     map<string, int> tempKmers{};
 

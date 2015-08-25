@@ -152,8 +152,10 @@
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Algorithms\ClumpFindingProblem.hpp" />
     <ClInclude Include="..\src\Algorithms\FrequentWords.hpp" />
     <ClInclude Include="..\src\Algorithms\PatternCount.hpp" />
+    <ClInclude Include="..\src\Algorithms\PatternMatchingProblem.hpp" />
     <ClInclude Include="..\src\Algorithms\ReverseComplement.hpp" />
     <ClInclude Include="..\src\biocode.hpp" />
     <ClInclude Include="..\src\Entities\DNA.hpp" />

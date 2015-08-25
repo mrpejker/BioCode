@@ -13,5 +13,7 @@
 #include "Algorithms/PatternCount.hpp"
 #include "Algorithms/FrequentWords.hpp"
 #include "Algorithms/ReverseComplement.hpp"
+#include "Algorithms/PatternMatchingProblem.hpp"
+#include "Algorithms/ClumpFindingProblem.hpp" 
 
 #endif

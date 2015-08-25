@@ -47,6 +47,12 @@
     <ClInclude Include="..\src\Algorithms\ReverseComplement.hpp">
       <Filter>Заголовочные файлы\Algorithms</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Algorithms\PatternMatchingProblem.hpp">
+      <Filter>Заголовочные файлы\Algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Algorithms\ClumpFindingProblem.hpp">
+      <Filter>Заголовочные файлы\Algorithms</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BioCode.rc">

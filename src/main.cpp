@@ -38,16 +38,73 @@ int main() {
     //  };
     //}
 
-    { //Read input and solve Reverse Complement problem
-     // cout << "Reverse Complement for AAAACCCGGT is" << ReverseComplement("AAAACCCGGT") << endl; //Quiz 1 question 3
-      ifstream ifs("../data/datasets/dataset_3_2.txt", ios::in);
+    //{ //Read input and solve Reverse Complement problem
+    // // cout << "Reverse Complement for AAAACCCGGT is" << ReverseComplement("AAAACCCGGT") << endl; //Quiz 1 question 3
+    //  ifstream ifs("../data/datasets/dataset_3_2.txt", ios::in);
+    //  string text{};
+    //  getline(ifs, text);
+
+    //  ofstream myfile;
+    //  myfile.open("../data/datasets/dataset_3.txt");
+    //  myfile << ReverseComplement(text) << endl;
+    //  myfile.close();
+    //};
+
+    //{ //Read input and solve Pattern Matching Problem
+    //  /*cout << "Pattern mathcing for ATAT and GATATATGCATATACTT" << endl;
+    //  vector<int> ans = PatternMatchingProblem("ATAT", "GATATATGCATATACTT"); 
+    //  for ( auto i = 0; i < ans.size(); i++ ){
+    //    if ( ans[i] < 18) cout << ans[i] << endl;
+    //  }
+    //  */
+    //  ifstream ifs("../data/datasets/Vibrio_cholerae.txt", ios::in);
+    //  string text{ };
+    //  string pattern{"CTTGATCAT"};
+    //  //getline(ifs, pattern);
+    //  getline(ifs, text);
+    //  ofstream myfile;
+    //  myfile.open("../data/datasets/dataset6.txt");
+    //  
+    //  cout << "PatternMatching Result:" << endl;
+    //  vector<int> ans = PatternMatchingProblem(pattern, text);
+    //  for (auto i = 0; i < ans.size(); i++) {
+    //    if (ans[i] < text.size()+1 ) myfile << ans[i] << endl;
+    //  };
+    // 
+    // myfile.close();
+
+    //};
+
+
+    { //Read input and solve Clump Finding Problem
+      
+      //string example = "CCACGCGGTGTACGCTGCAAAAAGCCTTGCTGAATCAAATAAGGTTCCAGCACATCCTCAATGGTTTCACGTTCTTCGCCAATGGCTGCCGCCAGGTTATCCAGACCTACAGGTCCACCAAAGAACTTATCGATTACCGCCAGCAACAATTTGCGGTCCATATAATCGAAACCTTCAGCATCGACATTCAACATATCCAGCG";
+      //vector<string> ans = ClumpFindingProblem(example,3,25,3);
+      //for ( auto i = 0; i < ans.size(); i++ ){
+      // cout << ans[i] << endl;
+      //}
+
+      ifstream ifs("../data/datasets/dataset_4_5.txt", ios::in);
       string text{};
+      int L = 0;
+      int k = 0; 
+      int t = 0;
+     
       getline(ifs, text);
+      ifs >> k;
+      ifs >> L;
+      ifs >> t;
 
       ofstream myfile;
-      myfile.open("../data/datasets/dataset_3.txt");
-      myfile << ReverseComplement(text) << endl;
-      myfile.close();
+      myfile.open("../data/datasets/dataset45.txt");
+      cout << "ClumpFindingProblem" <<endl<<text<<endl<< k << endl << L << endl << t;
+      vector<string> ans = ClumpFindingProblem(text, k, L, t);
+      for (auto i = 0; i < ans.size(); i++) {
+         myfile << ans[i] << endl;
+      };
+
+  myfile.close();
+
     };
   } 
   catch (...) {
